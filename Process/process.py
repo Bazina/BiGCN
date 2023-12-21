@@ -1,5 +1,5 @@
 import os
-from Process.dataset import GraphDataset,BiGraphDataset,UdGraphDataset
+from BiGCN.Process.dataset import GraphDataset,BiGraphDataset,UdGraphDataset
 cwd=os.getcwd()
 
 

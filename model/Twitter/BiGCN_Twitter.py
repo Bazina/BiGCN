@@ -1,15 +1,15 @@
 import sys,os
 sys.path.append(os.getcwd())
-from Process.process import *
+from BiGCN.Process.process import *
 import torch as th
 from torch_scatter import scatter_mean
 import torch.nn.functional as F
 import numpy as np
-from tools.earlystopping import EarlyStopping
+from BiGCN.tools.earlystopping import EarlyStopping
 from torch_geometric.data import DataLoader
 from tqdm import tqdm
-from Process.rand5fold import *
-from tools.evaluate import *
+from BiGCN.Process.rand5fold import *
+from BiGCN.tools.evaluate import *
 from torch_geometric.nn import GCNConv
 import copy
 

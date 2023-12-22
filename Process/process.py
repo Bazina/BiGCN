@@ -6,7 +6,7 @@ cwd=os.getcwd()
 ################################### load tree#####################################
 def loadTree(dataname):
     if 'Twitter' in dataname:
-        treePath = os.path.join(cwd,'data/'+dataname+'/data.TD_RvNN.vol_5000.txt')
+        treePath = os.path.join(cwd,'BiGCN/data/'+dataname+'/data.TD_RvNN.vol_5000.txt')
         print("reading twitter tree")
         treeDic = {}
         for line in open(treePath):
@@ -19,7 +19,7 @@ def loadTree(dataname):
         print('tree no:', len(treeDic))
 
     if dataname == "Weibo":
-        treePath = os.path.join(cwd,'data/Weibo/weibotree.txt')
+        treePath = os.path.join(cwd,'BiGCN/data/Weibo/weibotree.txt')
         print("reading Weibo tree")
         treeDic = {}
         for line in open(treePath):
@@ -33,7 +33,7 @@ def loadTree(dataname):
 
 ################################# load data ###################################
 def loadData(dataname, treeDic,fold_x_train,fold_x_test,droprate):
-    data_path=os.path.join(cwd, 'data', dataname+'graph')
+    data_path=os.path.join(cwd, 'BiGCN/data', dataname+'graph')
     print("loading train set", )
     traindata_list = GraphDataset(fold_x_train, treeDic, droprate=droprate,data_path= data_path)
     print("train no:", len(traindata_list))
@@ -43,7 +43,7 @@ def loadData(dataname, treeDic,fold_x_train,fold_x_test,droprate):
     return traindata_list, testdata_list
 
 def loadUdData(dataname, treeDic,fold_x_train,fold_x_test,droprate):
-    data_path=os.path.join(cwd, 'data',dataname+'graph')
+    data_path=os.path.join(cwd, 'BiGCN/data',dataname+'graph')
     print("loading train set", )
     traindata_list = UdGraphDataset(fold_x_train, treeDic, droprate=droprate,data_path= data_path)
     print("train no:", len(traindata_list))
@@ -53,7 +53,7 @@ def loadUdData(dataname, treeDic,fold_x_train,fold_x_test,droprate):
     return traindata_list, testdata_list
 
 def loadBiData(dataname, treeDic, fold_x_train, fold_x_test, TDdroprate,BUdroprate):
-    data_path = os.path.join(cwd,'data', dataname + 'graph')
+    data_path = os.path.join(cwd,'BiGCN/data', dataname + 'graph')
     print("loading train set", )
     traindata_list = BiGraphDataset(fold_x_train, treeDic, tddroprate=TDdroprate, budroprate=BUdroprate, data_path=data_path)
     print("train no:", len(traindata_list))

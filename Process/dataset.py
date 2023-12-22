@@ -33,8 +33,8 @@ class GraphDataset(Dataset):
             new_edgeindex = edgeindex
         return Data(x=torch.tensor(data['x'],dtype=torch.float32),
                     edge_index=torch.LongTensor(new_edgeindex),
-             y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
-             rootindex=torch.LongTensor([int(data['rootindex'])]))
+                    y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
+                    rootindex=torch.LongTensor([int(data['rootindex'])]))
 
 def collate_fn(data):
     return data
@@ -80,8 +80,8 @@ class BiGraphDataset(Dataset):
             bunew_edgeindex = [burow,bucol]
         return Data(x=torch.tensor(data['x'],dtype=torch.float32),
                     edge_index=torch.LongTensor(new_edgeindex),BU_edge_index=torch.LongTensor(bunew_edgeindex),
-             y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
-             rootindex=torch.LongTensor([int(data['rootindex'])]))
+                    y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
+                    rootindex=torch.LongTensor([int(data['rootindex'])]))
 
 
 class UdGraphDataset(Dataset):
@@ -115,5 +115,5 @@ class UdGraphDataset(Dataset):
 
         return Data(x=torch.tensor(data['x'],dtype=torch.float32),
                     edge_index=torch.LongTensor(new_edgeindex),
-             y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
-             rootindex=torch.LongTensor([int(data['rootindex'])]))
+                    y=torch.LongTensor([int(data['y'])]), root=torch.LongTensor(data['root']),
+                    rootindex=torch.LongTensor([int(data['rootindex'])]))

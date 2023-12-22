@@ -132,8 +132,8 @@ def train_GCN(treeDic, x_test, x_train,TDdroprate,BUdroprate,lr, weight_decay,pa
             train_acc = correct / len(Batch_data.y)
             avg_acc.append(train_acc)
             print("Iter {:03d} | Epoch {:05d} | Batch{:02d} | Train_Loss {:.4f}| Train_Accuracy {:.4f}".format(iter,epoch, batch_idx,
-                                                                                                 loss.item(),
-                                                                                                 train_acc))
+                                                                                                               loss.item(),
+                                                                                                               train_acc))
             batch_idx = batch_idx + 1
 
         train_losses.append(np.mean(avg_loss))
@@ -142,9 +142,9 @@ def train_GCN(treeDic, x_test, x_train,TDdroprate,BUdroprate,lr, weight_decay,pa
         temp_val_losses = []
         temp_val_accs = []
         temp_val_Acc_all, temp_val_Acc1, temp_val_Prec1, temp_val_Recll1, temp_val_F1, \
-        temp_val_Acc2, temp_val_Prec2, temp_val_Recll2, temp_val_F2, \
-        temp_val_Acc3, temp_val_Prec3, temp_val_Recll3, temp_val_F3, \
-        temp_val_Acc4, temp_val_Prec4, temp_val_Recll4, temp_val_F4 = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []
+            temp_val_Acc2, temp_val_Prec2, temp_val_Recll2, temp_val_F2, \
+            temp_val_Acc3, temp_val_Prec3, temp_val_Recll3, temp_val_F3, \
+            temp_val_Acc4, temp_val_Prec4, temp_val_Recll4, temp_val_F4 = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []
         model.eval()
         tqdm_test_loader = tqdm(test_loader)
         for Batch_data in tqdm_test_loader:
@@ -159,11 +159,11 @@ def train_GCN(treeDic, x_test, x_train,TDdroprate,BUdroprate,lr, weight_decay,pa
                 val_pred, Batch_data.y)
             temp_val_Acc_all.append(Acc_all), temp_val_Acc1.append(Acc1), temp_val_Prec1.append(
                 Prec1), temp_val_Recll1.append(Recll1), temp_val_F1.append(F1), \
-            temp_val_Acc2.append(Acc2), temp_val_Prec2.append(Prec2), temp_val_Recll2.append(
+                temp_val_Acc2.append(Acc2), temp_val_Prec2.append(Prec2), temp_val_Recll2.append(
                 Recll2), temp_val_F2.append(F2), \
-            temp_val_Acc3.append(Acc3), temp_val_Prec3.append(Prec3), temp_val_Recll3.append(
+                temp_val_Acc3.append(Acc3), temp_val_Prec3.append(Prec3), temp_val_Recll3.append(
                 Recll3), temp_val_F3.append(F3), \
-            temp_val_Acc4.append(Acc4), temp_val_Prec4.append(Prec4), temp_val_Recll4.append(
+                temp_val_Acc4.append(Acc4), temp_val_Prec4.append(Prec4), temp_val_Recll4.append(
                 Recll4), temp_val_F4.append(F4)
             temp_val_accs.append(val_acc)
         val_losses.append(np.mean(temp_val_losses))
@@ -216,10 +216,10 @@ TR_F1 = []
 UR_F1 = []
 for iter in range(iterations):
     fold0_x_test, fold0_x_train, \
-    fold1_x_test,  fold1_x_train,  \
-    fold2_x_test, fold2_x_train, \
-    fold3_x_test, fold3_x_train, \
-    fold4_x_test,fold4_x_train = load5foldData(datasetname)
+        fold1_x_test,  fold1_x_train, \
+        fold2_x_test, fold2_x_train, \
+        fold3_x_test, fold3_x_train, \
+        fold4_x_test,fold4_x_train = load5foldData(datasetname)
     treeDic=loadTree(datasetname)
     train_losses, val_losses, train_accs, val_accs0, accs0, F1_0, F2_0, F3_0, F4_0 = train_GCN(treeDic,
                                                                                                fold0_x_test,

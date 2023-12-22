@@ -6,7 +6,7 @@ cwd=os.getcwd()
 
 def load5foldData(obj):
     if 'Twitter' in obj:
-        labelPath = os.path.join(cwd,"data/" +obj+"/"+ obj + "_label_All.txt")
+        labelPath = os.path.join(cwd,"BiGCN/data/" +obj+"/"+ obj + "_label_All.txt")
         labelset_nonR, labelset_f, labelset_t, labelset_u = ['news', 'non-rumor'], ['false'], ['true'], ['unverified']
         print("loading tree label" )
         NR,F,T,U = [],[],[],[]
@@ -174,8 +174,8 @@ def load5foldData(obj):
     fold4_train = list(fold4_x_train)
     shuffle(fold4_train)
 
-    return list(fold0_test),list(fold0_train),\
-           list(fold1_test),list(fold1_train),\
-           list(fold2_test),list(fold2_train),\
-           list(fold3_test),list(fold3_train),\
-           list(fold4_test), list(fold4_train)
+    return list(fold0_test),list(fold0_train), \
+        list(fold1_test),list(fold1_train), \
+        list(fold2_test),list(fold2_train), \
+        list(fold3_test),list(fold3_train), \
+        list(fold4_test), list(fold4_train)

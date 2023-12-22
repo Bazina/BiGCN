@@ -277,6 +277,6 @@ for iter in range(iterations):
     TR_F1.append((F3_0 + F3_1 + F3_2 + F3_3 + F3_4) / 5)
     UR_F1.append((F4_0 + F4_1 + F4_2 + F4_3 + F4_4) / 5)
 print("Total_Test_Accuracy: {:.4f}|NR F1: {:.4f}|FR F1: {:.4f}|TR F1: {:.4f}|UR F1: {:.4f}".format(
-    sum(test_accs) / iterations, sum(NR_F1) /iterations, sum(FR_F1) /iterations, sum(TR_F1) / iterations, sum(UR_F1) / iterations))
+    sum(test_accs) / iterations, sum(NR_F1) /iterations, sum(FR_F1) /iterations, sum(TR_F1) / iterations, sum(UR_F1) /iterations))
 
 
